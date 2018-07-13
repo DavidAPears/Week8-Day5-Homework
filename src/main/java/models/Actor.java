@@ -1,6 +1,8 @@
 package models;
 
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,16 +93,32 @@ public class Actor {
 
 //  ONE-TO-MANY (Actor gets Films):
 
+//    @ManyToMany (mappedBy = "actor", fetch = FetchType.LAZY)
+//    public List<Film> getFilm() {
+//        return film;
+//    }
+//
+//    public void setFilm(List<Film> film) {
+//        this.film = film;
+//    }
 
-    @OneToMany(mappedBy = "actor", fetch = FetchType.LAZY)
-    public List<Film> getFilm() {
+
+//  MANY-TO-MANY (Actors get Films)
+
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name = "actor_film",
+            joinColumns = {@JoinColumn(name = "actor_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "film_id", nullable = false, updatable = false)})
+    public List<Film> getFilms() {
         return film;
     }
 
-    public void setFilm(List<Film> film) {
-        this.film = film;
-    }
+    public void setFilms(List<Film> films) { this.film = films;}
 
+    public void addFilm(Film film){
+        this.film.add(film);
+    }
 
 }
 
