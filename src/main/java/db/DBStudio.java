@@ -46,5 +46,31 @@ public class DBStudio {
 
         return director ;
     }
+
+//  Returns Films for Studio
+    public static List<Studio> getFilmsByStudio(Studio studio1) {
+        List<Studio> results = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            Criteria cr = session.createCriteria(Actor.class);
+            cr.createAlias("studios", "studio");
+            cr.add(Restrictions.eq("studio.id", studio1.getId()));
+            results = cr.list();
+        } catch (HibernateException ex){
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
+
+    }
+//
+//    //    To add Film to a Studio:
+//
+//    public static void addStudioToFilm(Film film, Studio studio){
+//        Film.addStudio(studio);
+//        studio.addFilm(film);
+//        DBHelper.update(film);
+//    }
 }
 

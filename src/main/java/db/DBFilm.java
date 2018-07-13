@@ -2,6 +2,7 @@ package db;
 
 import models.Actor;
 import models.Film;
+import models.Studio;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -30,5 +31,8 @@ public class DBFilm {
         }
         return results;
 
+    }
+
+    public static void addFilmTStudio(Film film1, Studio studio1) {
     }
 }

@@ -91,8 +91,10 @@ public class Director {
     }
 
 
+//  Add Studio Method
 
-
+    public static void addStudio(Studio studio) {
+    }
 
 }
 

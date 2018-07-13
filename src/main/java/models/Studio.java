@@ -98,8 +98,8 @@ public class Studio {
     public void setActors(List<Actor> actor) { this.actors = actor; }
 
 
+//  Add Director method
 
-
-
-
+    public void addDirector(Director director) {
+    }
 }

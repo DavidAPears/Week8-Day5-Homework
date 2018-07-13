@@ -1,4 +1,4 @@
-import db.DBHelper;
+import db.*;
 import models.Actor;
 import models.Director;
 import models.Film;
@@ -100,11 +100,36 @@ public class Runner {
 
 //  METHODS:
 
-        List<Actor> actors = DBHelper.getAll(Actor.class);
+
+//      Actor gets added to Film:
+        DBActor.addActorToFilm(actor1, film1);
+        DBActor.addActorToFilm(actor2, film1);
+
+
+//      Film gets added to Studio:
+        DBFilm.addFilmTStudio(film1, studio1);
+
+
+//      Director gets added to Studio:
+        DBDirector.addDirectorToStudio(director1, studio1);
+
+
+//      Returns Actor for Films:
+        List<Actor> actors = DBFilm.getFilmActors(film1);
+
+
+//      Returns Films for Studio:
+        List<Studio> films = DBStudio.getFilmsByStudio(studio1);
+
+
+
+//      Returns all from each Class:
+
+        List<Actor> actorsagain = DBHelper.getAll(Actor.class);
 
         List<Studio> studios = DBHelper.getAll(Studio.class);
 
-        List<Film> films = DBHelper.getAll(Film.class);
+        List<Film> film = DBHelper.getAll(Film.class);
 
         List<Director> directors = DBHelper.getAll(Director.class);
 
