@@ -71,7 +71,7 @@ public class Studio {
         return directors;
     }
 
-    public void setDirector(List<Director> director) {
+    public void setDirectors(List<Director> director) {
         this.directors = director;
     }
 
@@ -83,7 +83,7 @@ public class Studio {
         return films;
     }
 
-    public void setFilm(List<Film> film) {
+    public void setFilms(List<Film> film) {
         this.films = film;
     }
 
@@ -95,7 +95,7 @@ public class Studio {
         return actors;
     }
 
-    public void setActor(List<Actor> actor) { this.actors = actor; }
+    public void setActors(List<Actor> actor) { this.actors = actor; }
 
 
 

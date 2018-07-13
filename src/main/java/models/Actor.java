@@ -56,7 +56,7 @@ public class Actor {
         return firstName;
     }
 
-    public void setFirsName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -118,6 +118,7 @@ public class Actor {
     }
 
     public void setFilms(List<Film> films) { this.film = films;}
+
 
     public void addFilm(Film film){
         this.film.add(film);

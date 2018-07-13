@@ -107,6 +107,9 @@ public class Film {
         return actors;
     }
 
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
 
     public void setFilms(List<Actor> actors) {
         this.actors = actors;
