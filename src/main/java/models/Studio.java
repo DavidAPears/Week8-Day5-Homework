@@ -71,10 +71,33 @@ public class Studio {
         return directors;
     }
 
-    public void setDirector(List<Direcotr> actor) {
-        this.actors = actor;
+    public void setDirector(List<Director> director) {
+        this.directors = director;
     }
 
+
+//    ONE-TO-MANY ((Studio gets Films):
+
+    @OneToMany(mappedBy = "studio", fetch = FetchType.LAZY)
+    public List<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilm(List<Film> film) {
+        this.films = film;
+    }
+
+
+//  ONE-TO-MANY (Studio gets Actors)
+
+    @OneToMany(mappedBy = "studio", fetch = FetchType.LAZY)
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActor(List<Actor> actor) {
+        this.actors = actor;
+    }
 
 
 
