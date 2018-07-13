@@ -2,6 +2,7 @@ import db.DBHelper;
 import models.Actor;
 import models.Director;
 import models.Film;
+import models.Studio;
 import org.hibernate.id.IdentifierGeneratorHelper;
 
 import java.util.List;
@@ -9,6 +10,25 @@ import java.util.List;
 public class Runner {
 
     public static void main(String[] args) {
+
+
+//  STUDIOS:
+
+        Studio studio1 = new Studio("20th Century Fox", 100000000.00);
+        DBHelper.save(studio1);
+
+        Studio studio2 = new Studio("Paramount", 90000000.00);
+        DBHelper.save(studio2);
+
+        Studio studio3 = new Studio("New Line Cinema", 25000000.00);
+        DBHelper.save(studio3);
+
+        Studio studio4 = new Studio("Buena Vista Pictures", 250000000.00);
+        DBHelper.save(studio4);
+
+        Studio studio5 = new Studio("Miramax", 600000000.00);
+        DBHelper.save(studio5);
+
 
 
 //  DIRECTORS:
@@ -59,28 +79,35 @@ public class Runner {
 
 //  FILMS:
 
-        Film film1 = new Film("Die Hard", "Action", 28000000.00, "20th Century Fox");
+        Film film1 = new Film("Die Hard", "Action", 28000000.00, studio1);
         DBHelper.save(film1);
 
-        Film film2 = new Film("Top Gun", "Action", 15000000.00, "Paramount");
+        Film film2 = new Film("Top Gun", "Action", 15000000.00, studio2);
         DBHelper.save(film2);
 
-        Film film3 = new Film("Forest Gump", "Comedy", 55000000.00, "Paramount");
+        Film film3 = new Film("Forest Gump", "Comedy", 55000000.00, studio2);
         DBHelper.save(film3);
 
-        Film film4 = new Film("He's Just Not That Into You", "Rom-com", 40000000.00, "New Line Cinema");
+        Film film4 = new Film("He's Just Not That Into You", "Rom-com", 40000000.00, studio3);
         DBHelper.save(film4);
 
-        Film film5 = new Film("Pretty Woman", "Rom-com", 14000000.00, "Buena Vista Pictures");
+        Film film5 = new Film("Pretty Woman", "Rom-com", 14000000.00, studio4);
         DBHelper.save(film5);
 
-        Film film6 = new Film("Kill Bill", "Action", 30000000.00, "Miramax");
+        Film film6 = new Film("Kill Bill", "Action", 30000000.00, studio5);
         DBHelper.save(film6);
 
 
 //  METHODS:
 
         List<Actor> actors = DBHelper.getAll(Actor.class);
+
+        List<Studio> studios = DBHelper.getAll(Studio.class);
+
+        List<Film> films = DBHelper.getAll(Film.class);
+
+        List<Director> directors = DBHelper.getAll(Director.class);
+
 
     }
 

@@ -95,9 +95,7 @@ public class Studio {
         return actors;
     }
 
-    public void setActor(List<Actor> actor) {
-        this.actors = actor;
-    }
+    public void setActor(List<Actor> actor) { this.actors = actor; }
 
 
 

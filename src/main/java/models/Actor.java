@@ -19,6 +19,7 @@ public class Actor {
     private double performanceFee;
     private boolean guildMember;
     private List<Film> film;
+    private Studio studio;
 
 
     public Actor() {
@@ -32,6 +33,7 @@ public class Actor {
         this.performanceFee = performanceFee;
         this.guildMember = guildMember;
         this.film = new ArrayList<Film>();
+        this.studio = studio;
     }
 
 //  ACTOR ID - Getter & Setter:
@@ -90,17 +92,18 @@ public class Actor {
     public boolean setGuildMember(boolean guildMember) {return this.guildMember = guildMember; }
 
 
+//    MANY-TO-ONE: (Actors get Studio):
 
-//  ONE-TO-MANY (Actor gets Films):
+    @ManyToOne
+    @JoinColumn(name="studio_id", nullable=false)
+    public Studio getStudio() {
+        return studio;
+    }
 
-//    @ManyToMany (mappedBy = "actor", fetch = FetchType.LAZY)
-//    public List<Film> getFilm() {
-//        return film;
-//    }
-//
-//    public void setFilm(List<Film> film) {
-//        this.film = film;
-//    }
+    public void setStudio(Studio studio) {
+        this.studio = studio;
+    }
+
 
 
 //  MANY-TO-MANY (Actors get Films)

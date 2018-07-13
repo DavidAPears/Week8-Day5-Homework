@@ -16,19 +16,21 @@ public class Film {
     private String title;
     private String genre;
     private double cost;
-    private String studio;
+    private Studio studio;
     private List<Actor> actors;
+    private Director director;
 
 
     public Film() { }
 
-    public Film(String title, String genre, double cost, String studio) {
+    public Film(String title, String genre, double cost, Studio studio) {
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.cost= cost;
         this.studio = studio;
         this.actors = new ArrayList<Actor>();
+        this.director = director;
     }
 
 //  FILM ID - Getter & Setter:
@@ -71,24 +73,27 @@ public class Film {
     public double setCost(double cost) { return this.cost = cost;}
 
 
-//    FILM STUDIO - Getters & Setter:
 
-    @Column(name = "studio")
-    public String getStudio() {return studio;}
+//  MANY-TO-ONE (Films get Director):
 
-    public void setStudio(String studio) {this.studio = studio;}
+    @ManyToOne
+    @JoinColumn(name="director_id", nullable=false)
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
+    }
 
 
-//   ONE-TO-MANY (Film gets Actors):
+//  MANY-TO-ONE (Films get Studio):
 
-//    @OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
-//    public List<Actor> getActor() {
-//        return actors;
-//    }
-//
-//    public void setActor(List<Actor> actor) {
-//        this.actors = actor;
-//    }
+    @ManyToOne
+    @JoinColumn(name = "studio_id", nullable = false)
+    public Studio getStudio() { return studio;}
+
+    public void setStudio(Studio studio) { this.studio = studio;}
 
 
 //   MANY-TO-MANY (Films get Actors):

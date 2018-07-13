@@ -15,14 +15,17 @@ public class Director {
     private String name;
     private double filmBudget;
     private List<Film> films;
+    private Studio studio;
 
-    public Director() { }
+    public Director() {
+    }
 
-    public Director(String name, double filmBudget){
+    public Director(String name, double filmBudget) {
         this.id = id;
         this.name = name;
         this.filmBudget = filmBudget;
         this.films = new ArrayList<Film>();
+        this.studio = studio;
     }
 
 //    DIRECTOR ID - Getter & Setter:
@@ -30,7 +33,9 @@ public class Director {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -49,12 +54,16 @@ public class Director {
     }
 
 
-//    DIRECTOR FILM-BUDGET - Getter & Setter:
+//  DIRECTOR FILM-BUDGET - Getter & Setter:
 
     @Column(name = "film_budget")
-    public double getFilmBudget() {return filmBudget;}
+    public double getFilmBudget() {
+        return filmBudget;
+    }
 
-    public double setFilmBudget(double filmBudget) { return this.filmBudget = filmBudget;}
+    public double setFilmBudget(double filmBudget) {
+        return this.filmBudget = filmBudget;
+    }
 
 
 //  ONE-TO-MANY (Director gets Films):
@@ -69,7 +78,26 @@ public class Director {
     }
 
 
+//   MANY-TO-ONE (Director gets Studio)
+
+    @ManyToOne
+    @JoinColumn(name="studio_id", nullable=false)
+    public Studio getStudio() {
+        return studio;
+    }
+
+    public void setStudio(Studio studio) {
+        this.studio = studio;
+    }
+
+
+
+
+
 }
+
+
+
 
 
 
