@@ -33,6 +33,6 @@ public class DBFilm {
 
     }
 
-    public static void addFilmTStudio(Film film1, Studio studio1) {
+    public static void addFilmToStudio(Film film1, Studio studio1) {
     }
 }

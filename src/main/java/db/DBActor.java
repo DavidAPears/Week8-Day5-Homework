@@ -36,11 +36,11 @@ public class DBActor {
 
 //    To add Actor to a Film:
 
-//    public static void addActorToFilm(Actor actor, Film film){
-//        actor.addFilm(film);
-//        film.addActor(actor);
-//        DBHelper.update(actor);
-//    }
+    public static void addActorToFilm(Actor actor1, Film film1){
+        actor1.addFilm(film1);
+        film1.addActor(actor1);
+        DBHelper.update(actor1);
+    }
 
 //    To return which Films an Actor is in:
 

@@ -92,7 +92,7 @@ public class Actor {
     public boolean setGuildMember(boolean guildMember) {return this.guildMember = guildMember; }
 
 
-//    MANY-TO-ONE: (Actors get Studio):
+//  MANY-TO-ONE: (Actors get Studio):
 
     @ManyToOne
     @JoinColumn(name="studio_id", nullable=false)

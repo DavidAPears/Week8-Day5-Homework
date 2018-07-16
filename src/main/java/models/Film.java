@@ -100,7 +100,7 @@ public class Film {
 
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @ManyToMany
-    @JoinTable(name = "film",
+    @JoinTable(name = "filmActor",
             joinColumns = {@JoinColumn(name = "film", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "actor", nullable = false, updatable = false)})
     public List<Actor> getActors() {

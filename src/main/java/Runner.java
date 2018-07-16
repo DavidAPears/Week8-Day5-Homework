@@ -79,35 +79,44 @@ public class Runner {
 
 //  FILMS:
 
-        Film film1 = new Film("Die Hard", "Action", 28000000.00, studio1, director1);
+        Film film1 = new Film("Die Hard", "Action", 28.00, studio1, director1);
         DBHelper.save(film1);
 
-        Film film2 = new Film("Top Gun", "Action", 15000000.00, studio2, director2);
+        Film film2 = new Film("Top Gun", "Action", 15.00, studio2, director2);
         DBHelper.save(film2);
 
-        Film film3 = new Film("Forest Gump", "Comedy", 55000000.00, studio2, director3);
+        Film film3 = new Film("Forest Gump", "Comedy", 55.00, studio2, director3);
         DBHelper.save(film3);
 
-        Film film4 = new Film("He's Just Not That Into You", "Rom-com", 40000000.00, studio3, director4);
+        Film film4 = new Film("He's Just Not That Into You", "Rom-com", 40.00, studio3, director4);
         DBHelper.save(film4);
 
-        Film film5 = new Film("Pretty Woman", "Rom-com", 14000000.00, studio4, director5);
+        Film film5 = new Film("Pretty Woman", "Rom-com", 14.00, studio4, director5);
         DBHelper.save(film5);
 
-        Film film6 = new Film("Kill Bill", "Action", 30000000.00, studio5, director6);
+        Film film6 = new Film("Kill Bill", "Action", 30.00, studio5, director6);
         DBHelper.save(film6);
 
 
 //  METHODS:
 
 
-//      Actor gets added to Film:
-//        DBActor.addActorToFilm(actor1, film1);
-//        DBActor.addActorToFilm(actor2, film1);
+//      Actor(s) gets added to Film(s):
+        DBActor.addActorToFilm(actor1, film1);
+        DBActor.addActorToFilm(actor2, film2);
+        DBActor.addActorToFilm(actor3, film3);
+        DBActor.addActorToFilm(actor4, film4);
+        DBActor.addActorToFilm(actor5, film5);
+        DBActor.addActorToFilm(actor6, film6);
 
 
-//      Film gets added to Studio:
-        DBFilm.addFilmTStudio(film1, studio1);
+//      Film(s) gets added to Studio(s):
+        DBFilm.addFilmToStudio(film1, studio1);
+        DBFilm.addFilmToStudio(film2, studio2);
+        DBFilm.addFilmToStudio(film3, studio2);
+        DBFilm.addFilmToStudio(film4, studio3);
+        DBFilm.addFilmToStudio(film5, studio4);
+        DBFilm.addFilmToStudio(film6, studio5);
 
 
 //      Director gets added to Studio:
@@ -115,15 +124,14 @@ public class Runner {
 
 
 //      Returns Actor for Films:
-        List<Actor> actors = DBFilm.getFilmActors(film1);
+        List<Actor> filmActor = DBFilm.getFilmActors(film1);
 
 
 //      Returns Films for Studio:
         List<Studio> films = DBStudio.getFilmsByStudio(studio1);
 
 
-
-//      Returns all from each Class:
+//      Returns ALL from each Class:
 
         List<Actor> actorsagain = DBHelper.getAll(Actor.class);
 
