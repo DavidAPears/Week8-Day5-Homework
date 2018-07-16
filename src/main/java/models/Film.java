@@ -17,20 +17,20 @@ public class Film {
     private String genre;
     private double cost;
     private Studio studio;
-    private List<Actor> actors;
     private Director director;
+    private List<Actor> actors;
 
 
     public Film() { }
 
-    public Film(String title, String genre, double cost, Studio studio) {
+    public Film(String title, String genre, double cost, Studio studio, Director director) {
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.cost= cost;
         this.studio = studio;
-        this.actors = new ArrayList<Actor>();
         this.director = director;
+        this.actors = new ArrayList<Actor>();
     }
 
 //  FILM ID - Getter & Setter:
@@ -77,7 +77,7 @@ public class Film {
 //  MANY-TO-ONE (Films get Director):
 
     @ManyToOne
-    @JoinColumn(name="director_id", nullable=false)
+    @JoinColumn(name="director_id", nullable = false)
     public Director getDirector() {
         return director;
     }
@@ -104,7 +104,7 @@ public class Film {
             joinColumns = {@JoinColumn(name = "film", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "actor", nullable = false, updatable = false)})
     public List<Actor> getActors() {
-        return actors;
+        return (List<Actor>) actors;
     }
 
     public void setActors(List<Actor> actors) {
